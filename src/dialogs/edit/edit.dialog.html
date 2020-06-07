@@ -1,0 +1,40 @@
+<div class="container">
+  <h3 mat-dialog-title>Number: {{data.id}}</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Number" [(ngModel)]="data.id" name="id" type="number" required >
+        <mat-error>Number is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Title" [(ngModel)]="data.title"  name="title" required >
+        <mat-error>Title is required</mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput  class="form-control" placeholder="Body" [(ngModel)]="data.body" name="body" required ></textarea>
+        <mat-error>Body is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Author"  [(ngModel)]="data.author" name="author" required >
+        <mat-error>Author is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

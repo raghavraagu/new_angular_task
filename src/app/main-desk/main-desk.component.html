@@ -1,4 +1,4 @@
-<!-- <div style="height: 80vh;">
+<div style="height: 80vh;">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -31,13 +31,20 @@
         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
           <button mat-raised-button color="accent" (click)="addNew()">ADD</button>
         </div>
+        <div class="boom">
+          <h1>Hello {{username}}</h1> 
+          <h2>you have successfully loggedin</h2>
+        </div>
+        <div class="boom1" style="padding-top: 50px; padding-left: 10px;">
+          <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+          </div>
       </div>
       <div class="example-header" fxLayout="row">
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
       </div>
-
+    
       <div class="example-container mat-elevation-z8">
 
         <mat-table [dataSource]="dataSource" matSort>
@@ -96,5 +103,4 @@
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
-</div> -->
-<router-outlet></router-outlet>
+</div>

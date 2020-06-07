@@ -1,0 +1,32 @@
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {Component, Inject} from '@angular/core';
+import {AppService} from '../../app/app.service';
+import {FormControl, Validators} from '@angular/forms';
+
+@Component({
+  selector: 'app-baza.dialog',
+  templateUrl: '../../dialogs/edit/edit.dialog.html',
+  styleUrls: ['../../dialogs/edit/edit.dialog.css']
+})
+export class EditDialogComponent {
+
+  constructor(public dialogRef: MatDialogRef<EditDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any, public dataService: AppService) { }
+
+  formControl = new FormControl('', [
+    Validators.required
+  ]);
+
+
+  submit() {
+
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  stopEdit(): void {
+    this.dataService.updateIssue(this.data);
+  }
+}
